@@ -34,7 +34,7 @@ public  class HotelManagementSystem extends JFrame implements ActionListener{
     // main use of jlabel to to write upon the frame 
     JLabel text= new JLabel("HOTEL MANAGEMENT SYSTEM");
     text.setBounds(20,430,1000,90); ///jitna me hotel management system lkh ahua h n usi ka layout ye set kre g kitna bada rhe g ur kitna chota rhe g 
-    text.setForeground(new Color(3,249,208)); //color is a package which is in awt package so import it
+    text.setForeground(new Color(239,255,0)); //color is a package which is in awt package so import it
 // but our text is by default hidden behind frame to show it we use add() function
     text.setFont(new Font("serif",Font.PLAIN,28));
 // set font ke andr new font class ka object banaana htoa h
@@ -44,7 +44,7 @@ public  class HotelManagementSystem extends JFrame implements ActionListener{
     
     JButton next = new JButton("Next");
     next.setBounds(1020, 460, 90, 35);
-    next.setBackground(new Color(3,249,208));
+    next.setBackground(new Color(239,255,0));
     next.setForeground(Color.BLACK);
     //we need to set action listner here so that to open next layout of login
     next.addActionListener(this);
