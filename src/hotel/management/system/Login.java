@@ -12,23 +12,20 @@ import java.sql.*;
  * @author ashut
  */
 public class Login extends JFrame implements ActionListener{
-   //q ki ye text field constrcutor k andr locally defined h to usko globlay krna pdega
     JTextField usertext;
     JPasswordField passtext;
     JButton login,cancel;
     Login(){
         super("Login");
-        // getcontentpane means we should pick the frame using this.
         getContentPane().setBackground(Color.WHITE);
-         setLayout(null); //we make our own layout so we sholud set label as null
+         setLayout(null);
        
         
         JLabel user =new JLabel("Username");
         user.setBounds(35,30,100,30);
         add(user);
         
-        //in java if user enter in any text field like in html then we use predefined class JTextField heere
-         usertext=new JTextField(); 
+        usertext=new JTextField(); 
         usertext.setBounds(110,30,160,27);
         add(usertext);
         
@@ -55,11 +52,7 @@ public class Login extends JFrame implements ActionListener{
         add(cancel);
         
         ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/second.jpg"));
-        //to scale or to crop image we use this.
         Image i2=i1.getImage().getScaledInstance(190, 200, Image.SCALE_DEFAULT);
-        //here we make another obj i2 and call i1 through fxn called get scaled...
-        // but we cant directly call i2 in jlabel so we need to covert back it into icon form
-        //imageicon is a class in java that is used to set image on layout
         ImageIcon i3=new ImageIcon(i2);
         JLabel image=new JLabel(i3);
         image.setBounds(315,20,100,140);
@@ -68,20 +61,17 @@ public class Login extends JFrame implements ActionListener{
         
        setBounds(400,250,475,225);
        setVisible(true);
-        
     }
     public void actionPerformed(ActionEvent ae){
-    //yaha p is fxn k andr dono text feild psswd ur user name niklna h ur database k sth match krwana h
+    
     if(ae.getSource()==login){
-        //here with this value we need to hit  in database mtlb hm chck kreg ki ye credential database m hai ya nh
-    //to ye extrnl chiz h database me to excseption bh aye g   
     try{
         conn c=new conn();
         String user1=usertext.getText();
         String pass1=passtext.getText();
-        String query="select * from login where username='"+user1+"' and password='"+pass1+"'";//yaha [r user ur pass variable h
-        ResultSet rs=c.s.executeQuery(query); //conn class k obj c ke sth s ko chalaya
-        if (rs.next()){  //next function ss chck kr rh h data value mila hai ya nhi
+        String query="select * from login where username='"+user1+"' and password='"+pass1+"'";
+        ResultSet rs=c.s.executeQuery(query);
+        if (rs.next()){  
             setVisible(false);
             new Dashboard();
         }else{

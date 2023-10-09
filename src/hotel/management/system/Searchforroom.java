@@ -9,8 +9,6 @@ import java.awt.event.*;
 import java.sql.*;
 import net.proteanit.sql.*;
 
-
-
 public class Searchforroom extends JFrame implements ActionListener{
     JTable table;
     JButton back,check,print;
@@ -67,8 +65,7 @@ public class Searchforroom extends JFrame implements ActionListener{
         back.setBounds(685,60,80,28);
         add(back);
         
-       
-        
+ 
         table=new JTable();
        
         try{

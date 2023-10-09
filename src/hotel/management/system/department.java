@@ -11,20 +11,14 @@ import java.sql.ResultSet;
 import net.proteanit.sql.DbUtils;
 
 
- 
 public class department extends JFrame implements ActionListener{
     JTable table;
     JButton back;
     department(){
         super("Department");
         getContentPane().setBackground(new Color(240,231,247));
-//        setLayout(null);
-        
-        
-       
-        
-        
-        
+
+           
         table=new JTable();
         table.setBounds(0,60,500,300);
         
@@ -39,9 +33,7 @@ public class department extends JFrame implements ActionListener{
         JScrollPane sp=new JScrollPane(table);
         add(sp);
         
-        
-        
-        
+
         back=new JButton("Back");
         back.setForeground(Color.WHITE);
         back.setBackground(Color.BLACK);

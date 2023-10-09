@@ -21,7 +21,7 @@ public class addDriver extends JFrame implements ActionListener{
         getContentPane().setBackground(Color.WHITE);
         
         jladddriver =new JLabel("Add Drivers");
-        jladddriver.setFont(new Font("serrif",Font.BOLD,18));
+        jladddriver.setFont(new Font("Monospaced",Font.BOLD,18));
         jladddriver.setBounds(120,20,200,40);
         add(jladddriver);
         
@@ -97,35 +97,26 @@ public class addDriver extends JFrame implements ActionListener{
         add(tflocation);
         
         jbadddriver=new JButton("Add Driver");
-        jbadddriver.setForeground(Color.WHITE);
-        jbadddriver.setBackground(Color.BLACK);
+        jbadddriver.setForeground(Color.BLACK);
+        jbadddriver.setBackground(new Color(249,255,205));
         jbadddriver.addActionListener(this);
-        jbadddriver.setBounds(80, 305, 100, 25);
+        jbadddriver.setBounds(0, 320, 400, 25);
         add(jbadddriver);
         
         
         jbcancel=new JButton("Cancel");
-        jbcancel.setForeground(Color.WHITE);
-        jbcancel.setBackground(Color.BLACK);
+        jbcancel.setForeground(Color.BLACK);
+        jbcancel.setBackground(new Color(249,255,205));
         jbcancel.addActionListener(this);
-
-        jbcancel.setBounds(200, 305, 100, 25);
+        jbcancel.setBounds(400, 320, 400, 25);
         add(jbcancel);
         
-        
-        
-        
-        
-        
-        
-        
-        
+
         ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/eleven.jpg"));      
         Image i2=i1.getImage().getScaledInstance(380,250,Image.SCALE_DEFAULT);
         ImageIcon i3=new ImageIcon(i2);
         JLabel image=new JLabel(i3);
         image.setBounds(320,30,440,280);
-
         add(image);
         
         setBounds(250,150,800,400);

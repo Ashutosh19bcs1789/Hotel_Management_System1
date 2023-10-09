@@ -13,12 +13,12 @@ public class contactus extends JFrame implements ActionListener{
     JTextField tffirst,tflast,tfemail,tfdesc;
     contactus(){
         setLayout(null);
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(240,231,247));
         
         
         JLabel header=new JLabel("Contact Us");
         header.setBounds(275,25,200,40);
-        header.setFont(new Font("cursive",Font.BOLD,25));
+        header.setFont(new Font("Monospaced",Font.BOLD,25));
         add(header);
         
         
@@ -76,16 +76,16 @@ public class contactus extends JFrame implements ActionListener{
         add(desclabel);
         
         submit=new JButton("Submit");
-        submit.setBounds(255,330,80,30);
-        submit.setBackground(Color.BLACK);
-        submit.setForeground(Color.WHITE);
+        submit.setBounds(0,340,350,28);
+        submit.setBackground(new Color(249,255,205));
+        submit.setForeground(Color.BLACK);
         submit.addActionListener(this);
         add(submit);
         
         back=new JButton("Back");
-        back.setBounds(365,330,80,30);
-        back.setBackground(Color.BLACK);
-        back.setForeground(Color.WHITE);
+        back.setBounds(349,340,350,28);
+        back.setBackground(new Color(249,255,205));
+        back.setForeground(Color.BLACK);
         back.addActionListener(this);
         add(back);
         
@@ -103,6 +103,21 @@ public class contactus extends JFrame implements ActionListener{
         String email=tfemail.getText();
         String inquiry=tfdesc.getText();
             
+        if(firstname.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter First Name");
+            return;
+        }else if(lastname.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter Last Name");
+            return;
+        }else if(email.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter Email");
+            return;
+        }
+        else if(inquiry.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter your Inquiry/Feedback");
+            return;
+        }
+        
         try{
             conn c=new conn();
             c.s.executeUpdate("Insert into contactus values('"+firstname+"','"+lastname+"','"+email+"','"+inquiry+"')");

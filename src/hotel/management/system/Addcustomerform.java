@@ -105,7 +105,7 @@ public class Addcustomerform extends JFrame implements ActionListener{
         jlroomno.setBounds(60, 270, 80, 30);
         add(jlroomno);
         
-        croom=new Choice();  //choice ek class hota h combo box k trh but isme ek option hota h add k bh ki alag ss hm room no. add bh kr skte h
+        croom=new Choice();  
         try{
           conn c=new conn();
           String str="Select * from addroom where Availability='Available'";
@@ -127,9 +127,7 @@ public class Addcustomerform extends JFrame implements ActionListener{
         jlcheckin.setFont(new Font("Serrif",Font.BOLD,14));
         jlcheckin.setBounds(60, 310, 80, 30);
         add(jlcheckin);
-        
-        //date ke ly hm date clss k obj banaye g ur ye date cls java k util package ke andr aata h
-        
+                
         Date jdate=new Date();
         jlcheckintime=new JLabel(""+ jdate);
         jlcheckintime.setFont(new Font("Serrif",Font.BOLD,12));

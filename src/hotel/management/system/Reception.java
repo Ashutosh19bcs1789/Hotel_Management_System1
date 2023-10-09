@@ -95,8 +95,7 @@ public class Reception extends JFrame implements ActionListener{
         jbserchrooms.setBackground(new Color(249,255,205));
         jbserchrooms.setForeground(Color.BLACK);
         jbserchrooms.addActionListener(this);
-        add(jbserchrooms);
-        
+        add(jbserchrooms);    
         
         jbLogout=new JButton("Logout");
         jbLogout.setBounds(60,465,160,25);
@@ -111,9 +110,7 @@ public class Reception extends JFrame implements ActionListener{
         JLabel image=new JLabel(i3);
         image.setBounds(255,25,500,465);
         add(image);
-        
-  
-        
+      
         setBounds(240,110,800,560);
         setVisible(true);
     }

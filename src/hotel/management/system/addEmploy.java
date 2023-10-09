@@ -13,12 +13,13 @@ public class addEmploy extends JFrame implements ActionListener{
        JTextField tfname,tfage,tfsalary,tfadhar,tfemail,tfphone;
        //qki text field ka data jo bh h usko database m bhna h submit pr click kr k
        JRadioButton rbmale,rbfemale;
-       JButton submit;
+       JButton submit,back;
        JComboBox cbjob;
     
     addEmploy(){
+        super("Add Employee");
        setLayout(null);
-       
+      
        
        JLabel jlname=new JLabel("NAME");
        jlname.setBounds(60,30,120,30);
@@ -64,8 +65,6 @@ public class addEmploy extends JFrame implements ActionListener{
        jljob.setFont(new Font("serif",Font.PLAIN,12));
        add(jljob);
        
-       //here we need drop down it can be done with JComboBox.
-       //job bh value apko dkhana h dropdown m jo ass aa aray of string dkhna pdega
        String str[]={"Manager","Accountant","Front Desk Clerks","Porters","House Keeping","Room Service","Chefs","Waiter/ Waitress", "Manager","Accountant","Washman"};
        cbjob=new JComboBox(str);
        cbjob.setBounds(150, 155, 180, 25);
@@ -112,12 +111,20 @@ public class addEmploy extends JFrame implements ActionListener{
        
        
        submit=new JButton("SUMMIT");
-       submit.setBounds(150, 360, 180, 35);
-       submit.setForeground(Color.WHITE);
-       submit.setBackground(Color.BLACK);
-       //qki submit ss actionlistner work kre g to usko hme yha add krna h --function call kre g
+       submit.setBounds(0, 365, 395, 28);
+       submit.setForeground(Color.BLACK);
+       submit.setBackground(new Color(249,255,205));
        submit.addActionListener(this);
        add(submit);
+       
+       
+       back=new JButton("Back");
+       back.setBounds(394, 365, 395, 28);
+       back.setForeground(Color.BLACK);
+       back.setBackground(new Color(249,255,205));
+       back.addActionListener(this);
+       add(back);
+       
        
        ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/tenth.jpg"));
       Image i2=i1.getImage().getScaledInstance(380, 450, Image.SCALE_DEFAULT);
@@ -126,38 +133,26 @@ public class addEmploy extends JFrame implements ActionListener{
        image.setBounds(335, 10,450,380);  //image crop bh kr skte h
        add(image);
        
-       
-       
-       
+  
        getContentPane().setBackground(Color.WHITE); //isse layout k color seet hoga
        setBounds(250,150,790,460);
        setVisible(true);
    }
-   
-   
     public void actionPerformed(ActionEvent ae ){
-        //ab hame value nikalna h sb data k
-        String name=tfname.getText();
-        String age=tfage.getText();
-        
-        
-          //ab hame gender mane ki radio button se data niklana h to iske ly hm ek string banay g
-        // jo ki intial value null lega uske bd fr check kre g if else ss 
-        //mtlb isme ek isselected kr k ek function hota h usko rbmale.isselected... kr k kre g fr chck kre g.
-        String gender=null;
-        if(rbmale.isSelected()){
-            gender="Male";
-    } else if(rbfemale.isSelected()){
-        gender="Female";
-    }
-        
-        //wse hi combobox ss value niklne k ly hm ek string job bnay ur isme ek funx hota h .getselecteditem kr k uska use kr k nikle g        
-        String job=(String)cbjob.getSelectedItem(); //ye getselected obj ko return krta h ur hm string m return krwa rhe h to type cast kr rh h string m
-       
-        String salary=tfsalary.getText();
-        String phone=tfphone.getText();
-        String adhar=tfadhar.getText();
-        String email=tfemail.getText();
+        if(ae.getSource()==submit){
+            String name=tfname.getText();
+            String age=tfage.getText();
+            String gender=null;
+            if(rbmale.isSelected()){
+                   gender="Male";
+           } else if(rbfemale.isSelected()){
+                gender="Female";
+            }  
+            String job=(String)cbjob.getSelectedItem(); 
+            String salary=tfsalary.getText();
+            String phone=tfphone.getText();
+            String adhar=tfadhar.getText();
+            String email=tfemail.getText();
         
         
       if(name.equals("")){
@@ -182,24 +177,19 @@ public class addEmploy extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null,"Error ! Email Required");
                 return;
             } 
-    //ab data ko database m dalna h sme externl source use hota to exception k chance h try catch use hoga
     try{
-    conn c = new conn(); //ab query mysql p banae k bd con banana h
-    //conn baane k ly 1step hai ki conn k obj bana do sidha uske bd ek string query(str) lo ur value insert krwa do
+    conn c = new conn(); 
     String  str = "INSERT INTO employee VALUES ( '"+name+"', '"+age+"', '"+gender+"','"+job+"','"+salary+"', '"+phone+"','"+adhar+"', '"+email+"')";
-    //ab query ko properly execute bh krwana h login wale m hm ddl command k use kr rh th mtlb table ss table le rh th
-    //but yaha hm jo hai insert kre g database update kre g
-    //use kre g hm ye-
     c.s.executeUpdate(str);
-    //isme ss hame return koi  value nh chiye login jaisa to isme resultset banane ki jrurat nh h bs ek popup dkha dena h
-    // ur pop up k ly JOPtionPane.showMessage------- k use kre g
     JOptionPane.showMessageDialog(null,"Employee added successfully");
     setVisible(false);
     } 
     catch(Exception e){
     e.printStackTrace();
-    }//ja k mysql m query banao phel database taable
-    
+    }
+        }else{
+            setVisible(false);
+        }
     }
    public static void main(String[] args){
        new addEmploy();

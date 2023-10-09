@@ -14,10 +14,10 @@ public class checkout extends JFrame implements ActionListener{
     JButton back,checkout;
     checkout(){
         setLayout(null);
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(242,219,212));
         
          JLabel header=new JLabel("Checkout");
-         header.setFont(new Font("tahoma",Font.BOLD,18));
+         header.setFont(new Font("Monospaced",Font.BOLD,18));
          header.setBounds(300,15,150,35);
          add(header);
         
@@ -42,9 +42,7 @@ public class checkout extends JFrame implements ActionListener{
              e.printStackTrace();
          }
          
-         
-        
-         
+
          ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/tick.png"));
          Image i2=i1.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT );
          ImageIcon i3=new ImageIcon(i2);
@@ -112,15 +110,14 @@ public class checkout extends JFrame implements ActionListener{
                      }}
          });
          
-         
-         
+   
          JLabel jlcheckouttime=new JLabel("Check Out Time");
          jlcheckouttime.setBounds(30,170,100,30);
          add(jlcheckouttime);
          
          
          Date date=new Date();
-         jlcheckout=new JLabel(""+ date);// to convert anything into string pass "" to convert into string.
+         jlcheckout=new JLabel(""+ date);
          jlcheckout.setFont(new Font("tohima",Font.PLAIN,12));
          jlcheckout.setBounds(150,175,200,25);
          add(jlcheckout);
@@ -133,20 +130,19 @@ public class checkout extends JFrame implements ActionListener{
          
         checkout =new JButton("Checkout");
         checkout.setBounds(60, 300, 100, 25);
-        checkout.setForeground(Color.WHITE);
-        checkout.setBackground(Color.BLACK);
+        checkout.setForeground(Color.BLACK);
+        checkout.setBackground(new Color(165,247,187));
         checkout.addActionListener(this);
         add(checkout);
         
         
         back =new JButton("Back");
         back.setBounds(200, 300, 100, 25);
-        back.setForeground(Color.WHITE);
-        back.setBackground(Color.BLACK);
+        back.setForeground(Color.BLACK);
+        back.setBackground(new Color(165,247,187));
         back.addActionListener(this);
         add(back);
-        
-        
+              
         ImageIcon i4=new ImageIcon(ClassLoader.getSystemResource("icons/sixth.jpg"));
          Image i5=i4.getImage().getScaledInstance(280, 250,Image.SCALE_DEFAULT );
          ImageIcon i6=new ImageIcon(i5);

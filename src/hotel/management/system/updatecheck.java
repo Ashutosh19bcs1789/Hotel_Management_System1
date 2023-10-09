@@ -15,12 +15,12 @@ public class updatecheck extends JFrame implements ActionListener {
     JTextField tfpending,tfroom,tfname,tfcheckin, tfpaid;
     JButton check,update,back;
     updatecheck(){
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(242,219,212));
         setLayout(null);
         
         JLabel text=new JLabel("Update Status");
-        text.setBounds(120,25,150,30);
-        text.setFont(new Font(" railway",Font.BOLD,18));
+        text.setBounds(170,25,150,30);
+        text.setFont(new Font(" Monospaced",Font.BOLD,18));
         add(text);
         
         JLabel jlid=new JLabel("Customer Id");
@@ -91,24 +91,24 @@ public class updatecheck extends JFrame implements ActionListener {
         
         check =new JButton("Check");
         check.setBounds(30, 400, 80, 25);
-        check.setForeground(Color.WHITE);
-        check.setBackground(Color.BLACK);
+        check.setForeground(Color.BLACK);
+        check.setBackground(new Color(165,247,187));
         check.addActionListener(this);
         add(check);
       
         
         update =new JButton("Update");
         update.setBounds(130, 400, 80, 25);
-        update.setForeground(Color.WHITE);
-        update.setBackground(Color.BLACK);
+        update.setForeground(Color.BLACK);
+        update.setBackground(new Color(165,247,187));
         update.addActionListener(this);
         add(update);
         
         
         back =new JButton("Back");
         back.setBounds(230, 400, 80, 25);
-        back.setForeground(Color.WHITE);
-        back.setBackground(Color.BLACK);
+        back.setForeground(Color.BLACK);
+        back.setBackground(new Color(165,247,187));
         back.addActionListener(this);
         add(back);
         

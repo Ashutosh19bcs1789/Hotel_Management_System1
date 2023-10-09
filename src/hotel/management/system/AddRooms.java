@@ -14,12 +14,12 @@ public class AddRooms extends JFrame implements ActionListener{
     JTextField  tfroomno,tfprice;
     
     AddRooms(){
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(240,231,247));
         setLayout(null);
         
         heading=new JLabel("Add Rooms");
-        heading.setBounds(360,20,200,20);
-        heading.setFont(new Font("serrif",Font.BOLD,16));
+        heading.setBounds(360,20,200,24);
+        heading.setFont(new Font("Monospaced",Font.BOLD,18));
         add(heading);
         
         lbroomno=new JLabel("Room Number");
@@ -29,6 +29,7 @@ public class AddRooms extends JFrame implements ActionListener{
         
         tfroomno=new JTextField();
         tfroomno.setBounds(200,65,200,25);
+        tfroomno.setBackground(new Color(249,255,205));
         add(tfroomno);
         
         lbavailable=new JLabel("Available");
@@ -39,7 +40,7 @@ public class AddRooms extends JFrame implements ActionListener{
         String availableOption[]={"Available","Occupied"};
         cbavailableOption=new JComboBox(availableOption);
         cbavailableOption.setBounds(200,105,200,25);
-        cbavailableOption.setBackground(Color.WHITE);
+        cbavailableOption.setBackground(new Color(249,255,205));
         add(cbavailableOption);
         
         lbclean=new JLabel("Cleaning Status");
@@ -50,7 +51,7 @@ public class AddRooms extends JFrame implements ActionListener{
         String cleaningOption[]={"Clean","Dirty"};
         cbcleaningOption=new JComboBox(cleaningOption);
         cbcleaningOption.setBounds(200,145,200,25);
-        cbcleaningOption.setBackground(Color.WHITE);
+        cbcleaningOption.setBackground(new Color(249,255,205));
         add(cbcleaningOption);
         
         
@@ -62,7 +63,7 @@ public class AddRooms extends JFrame implements ActionListener{
         String BedtypeOption[]={"Single Bed","Double Bed","Triple Bed"};
         cbBedtypeOption=new JComboBox(BedtypeOption);
         cbBedtypeOption.setBounds(200,185,200,25);
-        cbBedtypeOption.setBackground(Color.WHITE);
+        cbBedtypeOption.setBackground(new Color(249,255,205));
         add(cbBedtypeOption);
         
         lbprice=new JLabel("Price");
@@ -72,21 +73,22 @@ public class AddRooms extends JFrame implements ActionListener{
         
         tfprice=new JTextField();
         tfprice.setBounds(200,225,200,25);
+        tfprice.setBackground(new Color(249,255,205));
         add(tfprice);
         
         jbadd=new JButton("Add Room");
-        jbadd.setBounds(180, 290 , 100, 25);
-        jbadd.setBackground(Color.BLACK);
-        jbadd.setForeground(Color.WHITE);
+        jbadd.setBounds(0, 350 , 425, 28);
+        jbadd.setBackground(new Color(249,255,205));
+        jbadd.setForeground(Color.BLACK);
         jbadd.addActionListener(this);
         add(jbadd);
         
         
         
         jbcancel=new JButton("Cancel");
-        jbcancel.setBounds(300, 290 , 100, 25);
-        jbcancel.setBackground(Color.BLACK);
-        jbcancel.setForeground(Color.WHITE);
+        jbcancel.setBounds(424, 350 , 425, 28);
+        jbcancel.setBackground(new Color(249,255,205));
+        jbcancel.setForeground(Color.BLACK);
         jbcancel.addActionListener(this);
         add(jbcancel);
         
@@ -97,18 +99,15 @@ public class AddRooms extends JFrame implements ActionListener{
         image.setBounds(450, 65, 350, 250);
         add(image);
         
-        
-        
-        
+    
         setBounds(220,150,850,450);
         setVisible(true);
     }
     
-    //ActionEvent jo h wo hame ye batata hai ki jo button click hua h use source kaya h 
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==jbadd){
         String roomnumber=tfroomno.getText();
-        String availability=(String)cbavailableOption.getSelectedItem();//combo box hamsesa ek obj retun krta h to hmko string me tyepcast krwana pdega + getselectionitem ek method hai usse hamse chckbox ka data niklate h
+        String availability=(String)cbavailableOption.getSelectedItem();
         String cleaning_status=(String)cbcleaningOption.getSelectedItem();
         String Bed_type=(String)cbBedtypeOption.getSelectedItem();
         String price=tfprice.getText();
@@ -133,6 +132,7 @@ public class AddRooms extends JFrame implements ActionListener{
         }
         }else{
             setVisible(false);
+            new Reception();
         }
     }
    public static void main(String[] args){

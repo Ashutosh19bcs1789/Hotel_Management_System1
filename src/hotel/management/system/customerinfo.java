@@ -21,9 +21,6 @@ public class customerinfo extends JFrame implements ActionListener {
         setLayout(null);
         getContentPane().setBackground(new Color(240,231,247));
         setExtendedState(MAXIMIZED_BOTH);
-        
-           
-      
         table =new JTable();
         try{
             conn c=new conn();
@@ -55,10 +52,7 @@ public class customerinfo extends JFrame implements ActionListener {
         back.setBackground(new Color(249,255,205));
         back.addActionListener(this);
         add(back);
-//        
-        
-        
-        
+
         setVisible(true);
     }
     public void actionPerformed(ActionEvent ae){

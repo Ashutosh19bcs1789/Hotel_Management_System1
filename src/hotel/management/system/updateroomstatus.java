@@ -20,7 +20,7 @@ updateroomstatus(){
         
         JLabel text=new JLabel("Update Room Status");
         text.setBounds(90,25,200,30);
-        text.setFont(new Font(" railway",Font.BOLD,18));
+        text.setFont(new Font(" Monospaced",Font.BOLD,18));
         add(text);
         
         JLabel jlid=new JLabel("Customer Id");
