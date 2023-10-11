@@ -15,7 +15,7 @@ public class updatepickup extends JFrame implements ActionListener{
     String name1;
     String driver;
     JLabel datte, lbroom,totalbill,lbridestart,lbdistance,lbdriver;
-    JButton bill,Ridecompleted,back;
+    JButton check,Ridecompleted,back;
     updatepickup(String roomnumber,String cname1,String drivern){
         
         super("Update PickUp Services");
@@ -105,12 +105,12 @@ public class updatepickup extends JFrame implements ActionListener{
         
         
         
-        bill=new JButton("CHECK");
-        bill.setForeground(Color.BLACK);
-        bill.setBackground(new Color(249,255,205));
-        bill.addActionListener(this);
-        bill.setBounds(360,245,90,23);
-        add(bill);
+        check=new JButton("CHECK");
+        check.setForeground(Color.BLACK);
+        check.setBackground(new Color(249,255,205));
+        check.addActionListener(this);
+        check.setBounds(360,245,90,23);
+        add(check);
         
         
         JLabel ridecom=new JLabel("IF YOU WANT TO UPDATE THIS RIDE AS FINISHED RIDE, THEN CLICK 'FINISHED RIDE'.");
@@ -138,7 +138,7 @@ public class updatepickup extends JFrame implements ActionListener{
         
     }
     public void actionPerformed(ActionEvent ae){
-        if(ae.getSource()==bill){
+        if(ae.getSource()==check){
             try{
                     conn c=new conn();
                     ResultSet rs=c.s.executeQuery("select * from bill where Room_Number='"+lbroom.getText()+"'");
@@ -152,6 +152,7 @@ public class updatepickup extends JFrame implements ActionListener{
                 }
         }else if(ae.getSource()==Ridecompleted){
             try{
+               
                 conn c=new conn();
                 String drivername=lbdriver.getText();
                 String str;

@@ -265,7 +265,9 @@ public class bookcar extends JFrame implements ActionListener {
                 conn c=new conn();
                 c.s.executeUpdate(str2);
                 c.s.executeUpdate(str3);
-                JOptionPane.showMessageDialog(null,"PickUp Booked Successfully, Have a Safe Journey");
+                String msg="Pickup Booked Successfully\n";
+                msg+="    )--------------------------------(\n   ";
+                JOptionPane.showMessageDialog(null,msg+"   Have a Safe Journey   ");
             }catch(Exception e){
                 e.printStackTrace();
             }}
